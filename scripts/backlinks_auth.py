@@ -408,7 +408,7 @@ def get_bing_verified_sites() -> list:
 def get_cache_dir() -> str:
     """Get the Common Crawl cache directory, creating it if needed."""
     config = load_config()
-    cache_dir = config.get("commoncrawl_cache_dir", CACHE_DIR)
+    cache_dir = os.environ.get("CODEX_SEO_CACHE_DIR") or config.get("commoncrawl_cache_dir", CACHE_DIR)
     os.makedirs(cache_dir, exist_ok=True)
     return cache_dir
 

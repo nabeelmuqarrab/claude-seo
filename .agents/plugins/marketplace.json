@@ -1,0 +1,7 @@
+{
+  "name": "nicknameff-seo-tools",
+  "interface": {"displayName": "Codex SEO Tools"},
+  "plugins": [
+    {"name": "claude-seo", "source": {"source": "local", "path": "./"}, "description": "Full Codex SEO skill suite with optional integrations.", "policy": {"installation": "AVAILABLE", "authentication": "ON_USE"}, "category": "Productivity"}
+  ]
+}

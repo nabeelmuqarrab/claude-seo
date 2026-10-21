@@ -160,6 +160,7 @@ def fetch_page_data(url: str) -> dict:
             suffix=".html",
             prefix="claude-seo-drift-",
             delete=False,
+            dir=os.environ.get("CLAUDE_SEO_RUN_DIR"),
         ) as tmp:
             tmp_path = tmp.name
 
@@ -199,7 +200,7 @@ def fetch_page_data(url: str) -> dict:
         result["error"] = "Page fetch or HTML parsing timed out"
         return result
     finally:
-        if tmp_path and os.path.exists(tmp_path):
+        if tmp_path and os.path.exists(tmp_path) and os.environ.get("CLAUDE_SEO_PRESERVE_ARTIFACTS") != "1":
             try:
                 os.unlink(tmp_path)
             except OSError:

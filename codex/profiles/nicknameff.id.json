@@ -1,0 +1,13 @@
+{
+  "domain": "nicknameff.id",
+  "language": "id",
+  "country": "Indonesia",
+  "audience": "Indonesian Free Fire players, primarily mobile",
+  "infrastructure": "Existing Hostinger plan; no additional paid infrastructure",
+  "public_routes_at_review": 18,
+  "content_rules": ["Preserve exact Unicode nickname and copy-button values", "One canonical page per search intent", "Improve existing Panduan guides before creating duplicate articles", "SVG interface icons and shared configurable design tokens"],
+  "product_distinctions": {"full_card_generator": ["Home", "Keren", "Aesthetic"], "dedicated_composers": ["Bucin", "Guild"]},
+  "private_data": "Do not collect nickname inputs, clipboard values or account credentials",
+  "project_boundary": "Separate from the MCQ site and Unified Sites Manager",
+  "measurement": "Use the existing OpenSEO/GSC connection where available; no new paid calls by default"
+}
