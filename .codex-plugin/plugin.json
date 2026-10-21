@@ -1,0 +1,9 @@
+{
+  "name": "claude-seo",
+  "version": "2.4.2-codex.1",
+  "description": "Complete Codex adaptation of Claude SEO: technical, content, schema, performance, semantic clustering, Google APIs, backlinks, local, ecommerce, GEO and optional integrations.",
+  "author": {"name": "AgriciDaniel; Codex adaptation maintained by nabeelmuqarrab"},
+  "license": "MIT",
+  "skills": "./codex/skills/",
+  "hooks": "./codex/hooks/hooks.json"
+}

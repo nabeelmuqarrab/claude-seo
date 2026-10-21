@@ -39,6 +39,7 @@ env/
 **/client_secret*.json
 **/service_account*.json
 **/oauth-token.json
+**/oauth-token.json.*
 **/.google-token.json
 
 # Node (if any)
@@ -192,3 +193,6 @@ id_ed25519.*
 # Local scratch and generated decks (never shipped)
 tmp/
 outputs/
+
+# Retained test artifacts (kept locally and uploaded by CI, not source code)
+test-runs/

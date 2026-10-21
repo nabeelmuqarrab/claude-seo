@@ -241,7 +241,7 @@ def parse_html(html: str, base_url: Optional[str] = None) -> dict:
     for element in soup(["script", "style", "nav", "footer", "header"]):
         element.decompose()
 
-    text = soup.get_text(separator=" ", strip=True)
+    text = (soup.body or soup).get_text(separator=" ", strip=True)
     words = re.findall(r"\b\w+\b", text)
     result["word_count"] = len(words)
 

@@ -1611,7 +1611,7 @@ def _build_gsc_section(gsc_data, chart_paths, section_num=3, fig_start=1):
     dr = gsc_data.get("date_range", {})
 
     if totals:
-        domain = gsc_data.get("property", "?")
+        domain = escape(str(gsc_data.get("property", "?")))
         lines.append(f'  <p>Period: {dr.get("start", "?")} to {dr.get("end", "?")} '
                      f'| Property: {domain}</p>')
         if gsc_warning:
@@ -1662,7 +1662,7 @@ def _build_gsc_section(gsc_data, chart_paths, section_num=3, fig_start=1):
         lines.append('    <tbody>')
         sorted_rows = sorted(rows, key=lambda r: r.get("impressions", 0), reverse=True)
         for i, r in enumerate(sorted_rows[:15], 1):
-            query = r.get("query", r.get("keys", ["?"])[0])
+            query = escape(str(r.get("query", r.get("keys", ["?"])[0])))
             pos = r.get("position", 0)
             pos_cls = ("status-pass" if pos <= 3
                        else ("status-warn" if pos <= 10 else "status-fail"))
@@ -1708,7 +1708,7 @@ def _build_gsc_section(gsc_data, chart_paths, section_num=3, fig_start=1):
         lines.append('    </thead>')
         lines.append('    <tbody>')
         for w in qw:
-            query = w.get("keys", ["?"])[0] if w.get("keys") else w.get("query", "?")
+            query = escape(str(w.get("keys", ["?"])[0] if w.get("keys") else w.get("query", "?")))
             lines.append(f'      <tr><td>{query}</td>'
                          f'<td>{w.get("position", 0):.1f}</td>'
                          f'<td>{w.get("impressions", 0):,}</td>'

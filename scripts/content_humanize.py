@@ -231,12 +231,12 @@ def _preserve_case(match_text: str, replacement: str) -> str:
     return replacement
 
 
-def humanize(text: str) -> dict:
+def humanize(text: str, *, preserve_unicode: bool = False) -> dict:
     """Apply every replacement; return the cleaned text plus a change log."""
     changes: list[dict] = []
     # Strip invisible characters first: zero-width codepoints inside
     # words would otherwise defeat the \b boundaries below.
-    cleaned, invisible_removed = strip_invisible(text)
+    cleaned, invisible_removed = (text, {}) if preserve_unicode else strip_invisible(text)
 
     for pattern, replacement, label in _PATTERNS:
         def _repl(match):
@@ -275,6 +275,11 @@ def main() -> int:
     parser.add_argument("--output", "-o", help="Write cleaned text to this path.")
     parser.add_argument("--json", action="store_true",
                         help="Emit JSON with cleaned text + change log.")
+    unicode_mode = parser.add_mutually_exclusive_group()
+    unicode_mode.add_argument("--preserve-unicode", action="store_true",
+                              help="Preserve intentional invisible/space Unicode characters.")
+    unicode_mode.add_argument("--strip-invisible", action="store_true",
+                              help="Explicitly request legacy invisible-character cleanup.")
     args = parser.parse_args()
 
     if args.source == "-":
@@ -282,7 +287,7 @@ def main() -> int:
     else:
         text = Path(args.source).read_text(encoding="utf-8", errors="replace")
 
-    result = humanize(text)
+    result = humanize(text, preserve_unicode=args.preserve_unicode)
 
     if args.json:
         json.dump(result, sys.stdout, indent=2)

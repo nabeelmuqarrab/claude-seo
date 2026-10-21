@@ -2,6 +2,13 @@
 
 # Claude SEO: SEO Skill for Claude Code
 
+**Codex edition is also included in this fork.** Install the native compatibility
+package from this repository using [the Codex guide](docs/CODEX.md). It retains all
+core and extension workflows, exposes specialist procedures as Codex skills, and
+adds a Python runner, trusted native hooks and a portable evidence cockpit.
+The original Claude Code edition below remains available. Codex compatibility
+version: `2.4.2-codex.1`; inspect `codex/coverage.json` for complete source mapping.
+
 **Claude SEO is an open-source SEO analysis plugin for [Claude Code](https://claude.ai/claude-code).** It runs 26 sub-skills and 19 specialist agents in parallel across technical SEO, content quality (E-E-A-T), Schema.org markup, AI search optimization (GEO), local SEO, e-commerce, and international SEO. Every audit produces a prioritized action plan with testable recommendations grounded in primary-source guidance from Google.
 
 [![CI](https://github.com/AgriciDaniel/claude-seo/actions/workflows/ci.yml/badge.svg)](https://github.com/AgriciDaniel/claude-seo/actions/workflows/ci.yml)

@@ -1,5 +1,17 @@
 # Claude SEO: Multi-Platform Agent Instructions
 
+## Native Codex edition
+
+For Codex, use the repository's `.codex-plugin/plugin.json` compatibility package
+and generated `codex/skills/` workflows; see `docs/CODEX.md`. The native Python
+entry point is `scripts/codex-seo.py`, not the Bash launcher. Claude-specific
+tool names, model settings, agents and install commands below are not assumed
+to be automatically aliased. Use actual host tools and retain the selected model.
+Every original workflow is mapped in `codex/coverage.json`; specialist skills may
+run inline when delegation is unavailable or not authorized. Read
+`codex/OPERATING-RULES.md` for paid actions, evidence and preservation boundaries.
+This section supersedes the older Codex mapping claims below.
+
 > For **Cursor**, **Cursor Cloud Agents**, **Google Antigravity**, **Gemini CLI**,
 > **Grok Build**,
 > **OpenAI Codex CLI**, **Cline**, **Aider**, and any other agent harness that
